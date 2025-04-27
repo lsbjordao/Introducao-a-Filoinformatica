@@ -1,0 +1,11 @@
+# Árvores filogenéticas das plantas
+
+[https://github.com/camwebb/tree-of-trees](https://github.com/camwebb/tree-of-trees)
+
+Árvore de @Gastauer2017: [R20160415.new](https://github.com/camwebb/tree-of-trees/blob/master/megatrees/R20160415.new)
+
+@Li2021
+
+353 Protein Coding Genes @Johnson2018
+
+Plant and Fungal Trees of Life (PAFTOL) project: [https://www.kew.org/science/our-science/projects/plant-and-fungal-trees-of-life](https://www.kew.org/science/our-science/projects/plant-and-fungal-trees-of-life)

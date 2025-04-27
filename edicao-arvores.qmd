@@ -1,0 +1,11 @@
+# Edição final de árvore
+
+Há uma gama muito grande de *softwares* que editam árvores filogenéticas. O programa `FigTree` possui interface amigável com usuário e com ele é possível editar árvores publicáveis. Outros programas que possuem interface gráfica com usuário são: [Dendroscope](http://dendroscope.org) e o [Mesquite](https://www.mesquiteproject.org) (que possui diversas funcionalidades voltadas para filogenias).
+
+No presente curso aprenderemos a editar árvores usando o [{{< fa brands r-project >}}](https://www.r-project.org), cujas possibilidades e funcionalidades superam hoje qualquer *software* com interface gráfica.
+
+## Prática
+
+Nessa etapa, vamos utilizar o programa o `FigTree` para, em seguida, aprendermos o básico do [{{< fa brands r-project >}}](https://www.r-project.org) e seus pacotes de filogenia.
+
+Abra as árvores obtidas nas análises filogenéticas previamente executadas com o [FigTree](http://tree.bio.ed.ac.uk/software/figtree/) e experimente as possibilidades de edição.

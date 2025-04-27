@@ -1,0 +1,174 @@
+# Montagem de sequências
+
+A primeira etapa computacional de uma análise filogenética é a montagem das sequências (*sequence assembly*) de cada um dos terminais a partir dos cromatogramas de cada *primer* sequenciado.
+
+## Cromatogramas
+
+![](images/cromatograma.png)
+
+
+### Conceito
+
+- Rastro (*trace*) do sinal dos nucleotídeos marcados por corante de acordo com a intensidade, indicada por quatro cores correspondentes às quatro bases nitrogenadas.
+
+### Finalidade
+
+- Verificar a qualidade do sinal
+- Detecção dos picos
+
+A baixa qualidade do sinal é denominado de ruído (*noise*). O ruído é caracterizado por picos pouco acentuados, com altura mais baixa e mais largos.
+
+
+### Qualidade do sinal
+
+- Alta
+  - Sem ambiguidade
+  - Picos adequadamente distantes com espaços regulares
+  - Sem ruído
+  - ![](images/QV-high.png)
+
+- Média
+  - Algumas ambiguidades
+  - Picos adequadamente distantes com espaços regulares
+  - Alguns trechos homopoliméricos não estão bem resolvidos
+  - ![](images/QV-medium.png)
+
+- Baixa
+  - Algumas ambiguidades
+  - 
+  - ![](images/QV-low.png)
+
+Fonte: [DNA Baser - What are chromatograms?](https://www.dnabaser.com/help/samples/what%20is%20a%20chromatogram.html)
+
+### Arquivo .ab1
+
+O arquivo `.ab1` contém o eletroferograma da sequência de DNA, bem como dados brutos e outras informações.
+
+O arquivo `.ab1` são gerados pelos sequenciadores da *Applied Biosystems*. Outros sequenciadores utilizam arquivos nos formatos `.scf` (*Standard Chromatogram Format*) e `.ztr`.
+
+Dois programas foram desenvolvidos especialmente para visualizar os cromatogramas:
+
+- [Chromas](http://technelysium.com.au/wp/chromas)
+- [FinchTV](https://finchtv.software.informer.com/1.4)
+
+... mas diversos programas podem realizar a tarefa.
+
+### Software FitchTV
+
+:::: {style="display: flex;"}
+
+::: {}
+
+![](images/fitchtv.png){width="300px"}
+
+:::
+
+::: {}
+
+O [FinchTV 1.4](https://finchtv.software.informer.com/a duração dessa etapa é variável1.4) é um programa *open-source* para visualização da qualidade e intensidade dos sinais obtidos. Com ele, é possível analisar os dados brutos do cromatograma (*raw data*).
+
+:::
+
+:::: 
+
+![](images/cromatograma_fitch.png)
+
+### Manual do sequenciamento Sanger
+
+Diversos fatores podem resultar em baixa resolução do sinal. Observe o capítulo 8 (*Troubleshooting*) do guia da *Applied Biosystems* para entender alguns dos principais problemas no sequenciamento: 
+
+[DNA Sequencing by Capillary Electrophoresis 3ed](https://www.ramaciotti.unsw.edu.au/sites/default/files/2019-04/sequencing_handbook_FLR.pdf).
+
+```{r echo=FALSE}
+library(xaringanExtra)
+embed_xaringan(
+  url = "https://www.ramaciotti.unsw.edu.au/sites/default/files/2019-04/sequencing_handbook_FLR.pdf",
+  ratio = "4:2"
+)
+```
+
+
+### Interpretação do cromatograma
+
+O processo automatizado de detecção de *contigs* através do algoritmo *base calling* de um software é sujeito à erros. E não é raro ocorrerem. Isso deve-se à baixa qualidade do sinal em certas regiões do cromatograma. A qualidade do sinal varia em função de inúmeros fatores e, geralmente, está relacionada à etapa das reações de sequenciamento. Compostos secundários, concentração inadequada de DNA amplificado, presença de contaminantes ou impurezas, ou qualquer outra razão misteriosa, pode atrapalhar as reações de sequenciamento, levando a uma baixa qualidade do sinal. Portanto, o filogeneticista precisa revisar visualmente e manualmente toda a sequência montada automaticamente por um software. Ademais, também é da própria natureza da tecnologia de sequenciamento Sanger, que a qualidade e resolução do sinal começa baixa, mas vai gradativamente melhorando a partir do início da reação, porém começa a decair após um determinado ponto. Consequentemente, a depender da qualidade do cromatograma, a duração dessa tarefa de montagem das sequências pode variar.
+
+Ademais, após o alinhamento múltiplo das sequências, é preciso reconferir os cromatogramas das sequências montadas. Por isso, é fundamental salvá-las no *software* utilizado. Cada *software* salvará como um arquivo específico, que não pode ser lido por outros programas. A tarefa de reconferir as montagens após o alinhamento múltiplo é trabalhosa, mas essencial para a correta codificação das homologias moleculares.
+
+Como decorrência do problema eventual de baixa resolução no cromatograma em algumas posições, um código de ambiguidade de nucleotídeos foi estabelecido pela IUPAC durante o Comitê de Nomenclatura da União Internacional de Bioquímica (NC-IUB), em 1984 [@Cornish-Bowden].
+
+![](images/iupac.png)
+
+### Prática
+
+- Para essa atividade será preciso baixar o **FitchTV**.
+
+- Vamos abrir alguns arquivos do cromatograma da região *trnD-T* de um organismo desconhecido (*species_1*):
+
+  - [`species_1_trnD-T(T).ab1`](./files/ab1/species_1_trnD-T(T).ab1)
+  - [`species_1_trnD-T(E).ab1`](./files/ab1/species_1_trnD-T(E).ab1)
+  - [`species_1_trnD-T(Y).ab1`](./files/ab1/species_1_trnD-T(Y).ab1)
+  - [`species_1_trnD-T(D).ab1`](./files/ab1/species_1_trnD-T(D).ab1)
+  
+
+- Observe o *raw data* dos cromatogramas:
+  1. Clique na aba `View` -> `Raw Data`;
+  2. Na janela que se abre, arraste o `Horizontal Scale` totalmente pra esquerda.
+
+<br>
+
+Há arquivos `.ab1` nesse site: [https://www.vanderbilt.edu/wolbachiaproject/lab-5-dna-sequences](https://www.vanderbilt.edu/wolbachiaproject/lab-5-dna-sequences).
+
+## Alinhamento de *contigs*
+
+***Contigs***
+
+Conjunto de sobreposições entre as fitas-simples oriundas de cada primer para formar uma sequência de consenso.
+
+### Assembly softwares
+
+A partir do rastro da intensidade dos sinais de cada uma das quatro bases nucleotídicas (*raw trace*), um programa de computador processa através do processo denominado *base calling*, que reconhece os picos nas intensidades do sinal de cada base.
+
+Dentre os programas que realizam o *base calling* para montagem das sequências estão: [Geneious](https://www.geneious.com), [Sequencher](http://www.genecodes.com/sequencher), [CodonCode Aligner](https://www.codoncode.com/aligner/), [ChromasPRO](http://technelysium.com.au/wp/chromaspro/), [DNA Baser](https://www.dnabaser.com); mas também os *open-source*: [Staden Package](http://staden.sourceforge.net) e o pacote [Phred/Phrap/Consed](http://www.phrap.org/phredphrapconsed.html).
+
+Existem diversos algoritmos para montagem de sequência , dentre os quais, destaca-se: CAP3, PHRAP, TIGR. Os algoritmos de montagem de genoma são conjuntos de procedimentos bem definidos necessários para reconstruir sequências de DNA a partir de dois ou um grande número de fragmentos mais curtos de uma sequência de DNA. Os fragmentos são alinhados uns ao lado dos outros pelo reconhecimento das regiões que apresentam sobreposição (*contigs*). Essas regiões de *contigs* são identificadas e mescladas. Algoritmos para reconstruir o genoma completo a partir de milhares de fragmentos como na tecnologia *next-generation* também têm sido desenvolvidos.
+
+![](images/assembly.png)
+
+### Prática
+
+Para essa atividade será preciso baixar um dos programas que realizam essa tarefa. Contudo, esses programas possuem licenças pagas. Entretanto, as empresas oferecem um período de teste com todas as funcionalidades ativas. Sugestão para essa atividade: `Sequencher`, `Geneious` ou `CodonCode Aligner`.
+
+- Vamos utilizar os arquivos listados abaixo, que compõem quatro *primers* sequenciados do *locus* *trnD-trnT* de um organismo desconhecido (*species 1*):
+
+  - [`species_1_trnD-T(T).ab1`](./files/ab1/species_1_trnD-T(T).ab1)
+  - [`species_1_trnD-T(E).ab1`](./files/ab1/species_1_trnD-T(E).ab1)
+  - [`species_1_trnD-T(Y).ab1`](./files/ab1/species_1_trnD-T(Y).ab1)
+  - [`species_1_trnD-T(D).ab1`](./files/ab1/species_1_trnD-T(D).ab1)
+
+- Siga o passo-a-passo:
+
+  1. Abra esses arquivos no programa escolhido.
+  2. Execute a função para realizar a montagem dos *primers* (*assemble*).
+  3. Inspecione visualmente a montagem dos *primers* do início ao fim.
+  4. Interprete os cromatogramas e as respectivas sequências e edite manualmente os erros encontrados.
+  5. Finalmente, teremos a sequência consenso montada.
+  6. Não deixe de salvar o arquivo da montagem no `software` utilizado. Após a etapa do alinhamento, o filogeneticista terá de reconferir essas montagens.
+
+- Compare a sua montagem com esta, realizada no programa `Sequencher`:
+
+  - [`species_1_trnD-T.SPF`](./files/sequencher/species_1_trnD-T.SPF)
+
+<br>
+
+- Faça também a montagem do ITS:
+
+  - [`species_2_ITS(An4).ab1`](./files/ab1/species_2_ITS(An4).ab1)
+  - [`species_2_ITS(An5).ab1`](./files/ab1/species_2_ITS(An5).ab1)
+
+- Compare a sua montagem do ITS com esta, realizada no programa `Sequencher`:
+
+  - [`species_2_ITS.SPF`](./files/ab1/species_2_ITS.SPF)
+
+<br>
+
+Monte as sequências usando os arquivos `.ab1` em:  [https://www.vanderbilt.edu/wolbachiaproject/lab-5-dna-sequences](https://www.vanderbilt.edu/wolbachiaproject/lab-5-dna-sequences).

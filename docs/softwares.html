@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.22">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Softwares para análises filogenéticas – Introdução à Filoinformática</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./edicao-arvores.html" rel="next">
+<link href="./modelos.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a5cd134f9b40a21b85be3e62cd27a8fe.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b4406b7675125bc2ba204020e191172.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dark-9080cd1872618827307f6bc34f81b6b8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-32d3c918484c9f49d94f37e56798127d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6RVCVSD60P"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-6RVCVSD60P', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./softwares.html"><span class="chapter-title">Softwares para análises filogenéticas</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introdução à Filoinformática</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prêambulo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./filoinformatica.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Filoinformática</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./visao-geral.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Visão geral e roteiro do curso</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tecnicas-moleculares.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Técnicas moleculares</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./montagem.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Montagem de sequências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./formatos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formatos de arquivo mais comuns</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./genebank.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">GeneBank <em>Blast</em></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./alinhamento.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Alinhamento manual</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./indels.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Codificando indels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./concatenacao.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Concatenando matrizes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./modelos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de evolução de sequências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./softwares.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Softwares para análises filogenéticas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./edicao-arvores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Edição final de árvore</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./arvores-plantas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Árvores filogenéticas das plantas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introducao-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introdução ao R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./filogenia-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Filogenia no R</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#ms-dos" id="toc-ms-dos" class="nav-link active" data-scroll-target="#ms-dos">MS-DOS</a></li>
+  <li><a href="#iq-tree" id="toc-iq-tree" class="nav-link" data-scroll-target="#iq-tree">IQ-TREE</a>
+  <ul class="collapse">
+  <li><a href="#prática" id="toc-prática" class="nav-link" data-scroll-target="#prática">Prática</a></li>
+  </ul></li>
+  <li><a href="#splitstree6" id="toc-splitstree6" class="nav-link" data-scroll-target="#splitstree6">SplitsTree6</a>
+  <ul class="collapse">
+  <li><a href="#prática-1" id="toc-prática-1" class="nav-link" data-scroll-target="#prática-1">Prática</a></li>
+  </ul></li>
+  <li><a href="#mrbayes" id="toc-mrbayes" class="nav-link" data-scroll-target="#mrbayes">MrBayes</a>
+  <ul class="collapse">
+  <li><a href="#prática-1-1" id="toc-prática-1-1" class="nav-link" data-scroll-target="#prática-1-1">Prática 1</a></li>
+  <li><a href="#prática-2-modelo-de-substituição" id="toc-prática-2-modelo-de-substituição" class="nav-link" data-scroll-target="#prática-2-modelo-de-substituição">Prática 2: Modelo de substituição</a></li>
+  <li><a href="#prática-3-gerando-o-output" id="toc-prática-3-gerando-o-output" class="nav-link" data-scroll-target="#prática-3-gerando-o-output">Prática 3: Gerando o output</a></li>
+  </ul></li>
+  <li><a href="#softwares-para-seleção-de-modelos-evolutivos" id="toc-softwares-para-seleção-de-modelos-evolutivos" class="nav-link" data-scroll-target="#softwares-para-seleção-de-modelos-evolutivos">Softwares para seleção de modelos evolutivos</a></li>
+  <li><a href="#raxmlgui-2.0-jmodeltest-2" id="toc-raxmlgui-2.0-jmodeltest-2" class="nav-link" data-scroll-target="#raxmlgui-2.0-jmodeltest-2">raxmlGUI 2.0 + jModelTest 2</a>
+  <ul class="collapse">
+  <li><a href="#partitionfinder" id="toc-partitionfinder" class="nav-link" data-scroll-target="#partitionfinder">PartitionFinder</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    window.setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        disableStylesheet(primaryStylesheets)
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      window.setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    window.hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(darkModeDefault) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const darkModeDefault = false;
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !window.hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+    };
+    // Switch to dark mode if need be
+    if (window.hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Softwares para análises filogenéticas</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Desde 1980, uma série de <em>softwares</em> vem sendo desenvolvidos para rodar análises filogenéticas.</p>
+<p><img src="images/phylloapps.png" class="img-fluid"></p>
+<p>Phylip</p>
+<p><img src="images/phylip.jpg" class="img-fluid"></p>
+<p>Hennig86</p>
+<p><img src="images/hennig86.png" class="img-fluid"></p>
+<p>NONA</p>
+<p><img src="images/nona.png" class="img-fluid"></p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'xaringanExtra' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="shareagain" style="min-width:300px;margin:1em auto;" data-exeternal="1">
+<iframe src="https://phylobotanist.blogspot.com/2016/04/the-popularity-of-phylogenetic-programs.html" width="400" height="200" style="border:2px solid currentColor;" loading="lazy" allowfullscreen=""></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
+</div>
+</div>
+<ul>
+<li><a href="http://evolution.genetics.washington.edu/phylip/software.html">Felsenstein/Kuhner lab</a></li>
+</ul>
+<p>Base atualizada com lista de programas por seções.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="shareagain" style="min-width:300px;margin:1em auto;" data-exeternal="1">
+<iframe src="http://evolution.genetics.washington.edu/phylip/software.html" width="400" height="200" style="border:2px solid currentColor;" loading="lazy" allowfullscreen=""></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
+</div>
+</div>
+<section id="ms-dos" class="level2">
+<h2 class="anchored" data-anchor-id="ms-dos">MS-DOS</h2>
+<ul>
+<li><p>Diversos programas de análises filogenéticas foram desenvolvidos para o ambiente do DOS (<em>Disk Operating System</em>).</p></li>
+<li><p>O <em>prompt</em> de comando do <em>DOS shell</em> é representado por <code>C:\&gt;</code>.</p>
+<ul>
+<li>A letra C refere-se à unidade de disco;</li>
+<li>Os dois-pontos e a contra-barra indicam o caminho do diretório-raiz da unidade C.</li>
+</ul></li>
+</ul>
+<div style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;">
+<p>Seleção do driver</p>
+<blockquote class="blockquote">
+<p><code>c:</code></p>
+</blockquote>
+<p>Acessa um diretório a partir do diretório atual:</p>
+<blockquote class="blockquote">
+<p><code>cd [diretório]</code></p>
+</blockquote>
+<p>Retorna um diretório:</p>
+<blockquote class="blockquote">
+<p><code>cd..</code></p>
+</blockquote>
+<p>Retorna ao diretório-raiz da unidade de disco:</p>
+<blockquote class="blockquote">
+<p><code>cd/</code></p>
+</blockquote>
+<p>Acessa um diretório:</p>
+<blockquote class="blockquote">
+<p><code>cd/[diretório]</code></p>
+</blockquote>
+<p>Exibe os diretórios e arquivos locais:</p>
+<blockquote class="blockquote">
+<p><code>dir</code></p>
+</blockquote>
+<p>…, lado a lado:</p>
+<blockquote class="blockquote">
+<p><code>dir/w</code></p>
+</blockquote>
+<p>…, pausadamente:</p>
+<blockquote class="blockquote">
+<p><code>dir/p</code></p>
+</blockquote>
+<p>…, lado a lado, pausadamente:</p>
+<blockquote class="blockquote">
+<p><code>dir/w/p</code></p>
+</blockquote>
+<p>Mostra todos os arquivos com determinada extensão:</p>
+<blockquote class="blockquote">
+<p><code>dir *.[extensão]</code></p>
+</blockquote>
+<p>Mostra os argumentos da função <code>dir</code>:</p>
+<blockquote class="blockquote">
+<p><code>dir/?</code></p>
+</blockquote>
+</div>
+</section>
+<section id="iq-tree" class="level2">
+<h2 class="anchored" data-anchor-id="iq-tree">IQ-TREE</h2>
+<ul>
+<li><p>O <a href="http://www.iqtree.org/">IQ-TREE</a> é um dos programas mais utilizados para condução de análises filogenéticas baseada no método da Máxima verossimilhança.</p></li>
+<li><p>Veja o <a href="http://www.iqtree.org/doc/iqtree-doc.pdf">Manual</a></p></li>
+<li><p>A primeira versão foi lançada em 2011. O IQ-Tree é o sucessor dos softwares IQPNNI (desde 2004) e do TREE-PUZZLE (desde 1995).</p></li>
+</ul>
+<p><img src="images/IqtreeContributors.png" class="img-fluid"></p>
+<section id="prática" class="level3">
+<h3 class="anchored" data-anchor-id="prática">Prática</h3>
+<ul>
+<li>Vamos testar o IQ-TREE utilizando o exemplo embutido no programa:</li>
+</ul>
+<div style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;">
+<ol type="1">
+<li><p>Coloque os arquivo com a matriz alinhada no mesmo diretório que o programa IQ-Tree. Isso evita que se tenha de especificar o caminho do arquivo a ser lido (input).</p></li>
+<li><p>Realize uma análise-teste com o exemplo do próprio programa, o arquivo <code>example.phy</code>, mas antes abra-o em um editor de texto plano (como o Bloco de Notas do Windows) para verificar seu conteúdo.</p></li>
+<li><p>Em seguida, execute os comandos abaixo:</p></li>
+</ol>
+<p>Lista completa de funções do programa</p>
+<blockquote class="blockquote">
+<p><code>iqtree -h</code></p>
+</blockquote>
+<p>Inferir a árvore de máxima verossimilhança utilizando o melhor modelo selecionado pelo ModelFinder</p>
+<blockquote class="blockquote">
+<p><code>iqtree -s example.phy</code></p>
+</blockquote>
+<p>Executar apenas a busca pelo melhor modelo utilizando o ModelFinder</p>
+<blockquote class="blockquote">
+<p><code>iqtree -s example.phy -m MF</code></p>
+</blockquote>
+<p>Executar diferentes métodos para estimação do suporte dos ramos</p>
+<blockquote class="blockquote">
+<p><code>iqtree -s example.phy -alrt 10000 -bb 10000 -lbp 10000 -abayes</code></p>
+</blockquote>
+</div>
+<p><br></p>
+<p>Exemplo com dados particionados (matriz combinada)</p>
+<div style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;">
+<p>Arquivo input</p>
+<blockquote class="blockquote">
+<p><code>iqtree -spp mimosa.nex</code></p>
+</blockquote>
+<p>Reescrever os arquivos, apagando os dados previamente gerados</p>
+<blockquote class="blockquote">
+<p><code>iqtree -spp mimosa.nex -redo</code></p>
+</blockquote>
+<p>Seleção do terminal externo</p>
+<blockquote class="blockquote">
+<p><code>iqtree -spp mimosa.nex -redo -o Mimosa_invisa_invisa</code></p>
+</blockquote>
+<p>Métricas de suporte dos ramos</p>
+<blockquote class="blockquote">
+<p><code>iqtree -spp mimosa.nex -redo -o invisa_invisa -allnni -alrt 10000 -bb  10000 -lbp 10000 -abayes -bnni</code></p>
+</blockquote>
+<p>Estabelecendo <em>constraints</em></p>
+<blockquote class="blockquote">
+<p><code>iqtree -spp mimosa.nex -redo -o invisa_invisa -g mimosa.constr1</code></p>
+</blockquote>
+<p>Concatenar arquivos</p>
+<blockquote class="blockquote">
+<p><code>type mimosa0.nex.treefile mimosa1.nex.treefile mimosa2.nex.treefile mimosa3.nex.treefile &gt; mimosa.treels</code></p>
+</blockquote>
+<p>Executar os testes de topologia</p>
+<blockquote class="blockquote">
+<p><code>iqtree -spp mimosa.nex -z mimosa.treels -o invisa_invisa -allnni -alrt 10000 -bb 10000 -abayes -lbp 10000 -bsam GENESITE -zb 10000 -au -zw</code></p>
+</blockquote>
+</div>
+</section>
+</section>
+<section id="splitstree6" class="level2">
+<h2 class="anchored" data-anchor-id="splitstree6">SplitsTree6</h2>
+<section id="prática-1" class="level3">
+<h3 class="anchored" data-anchor-id="prática-1">Prática</h3>
+<ul>
+<li><p>O arquivo <code>.splits.nex</code> gerado pelo <code>IQ-TREE</code> pode ser carregado pelo <a href="https://software-ab.informatik.uni-tuebingen.de/download/splitstree4/welcome.html">SplitsTree6</a> <span class="citation" data-cites="Huson">Huson e Bryant (<a href="#ref-Huson" role="doc-biblioref">2005</a>)</span>, um programa com interface gráfica com usuário e simples de usar.</p></li>
+<li><p>Diferentemente das árvores filogenéticas, as redes filogenéticas conseguem representar as incongruências e incertezas do conjunto total de árvores obtidas na análise filogenética, e são produzidas a partir de métodos de distância específicos. Trata-se de uma ferramenta exploratória interessante que tem sido utilizada até mesmo fora do campo da biologia comparativa.</p></li>
+</ul>
+</section>
+</section>
+<section id="mrbayes" class="level2">
+<h2 class="anchored" data-anchor-id="mrbayes">MrBayes</h2>
+<ul>
+<li><p>A primeira versão do <a href="https://nbisweden.github.io/MrBayes/index.html">MrBayes</a> <span class="citation" data-cites="Huelsenbeck">Huelsenbeck e Ronquist (<a href="#ref-Huelsenbeck" role="doc-biblioref">2001</a>)</span> foi lançada em 2000. Este talvez seja o mais conhecido programa de análise bayesiana para filogenias.</p></li>
+<li><p>O MrBayes possui um console próprio onde são inseridas as linhas de comando.</p></li>
+</ul>
+<p><img src="images/MrBayes.jpg" class="img-fluid"></p>
+<ul>
+<li>O ideal é manter o arquivo da matriz de dados a ser analisada no mesmo diretório do MrBayes.</li>
+</ul>
+<section id="prática-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="prática-1-1">Prática 1</h3>
+<ul>
+<li><p>Abra o MrBayes e execute os comandos abaixo:</p>
+<div style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;">
+<p>Sobre o programa:</p>
+<blockquote class="blockquote">
+<p><code>about</code></p>
+</blockquote>
+<p>Citações dos diferentes módulos do programa:</p>
+<blockquote class="blockquote">
+<p><code>citations</code></p>
+</blockquote>
+<p>Gera um arquivo .txt com a referência completa das funções no diretório Documents:</p>
+<blockquote class="blockquote">
+<p><code>manual</code></p>
+</blockquote>
+<p>Exibe as principais funções do programa:</p>
+<blockquote class="blockquote">
+<p><code>help</code></p>
+</blockquote>
+</div></li>
+<li><p>Com a função “help” os diversos parâmetros são exibidos:</p>
+<div style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;">
+<p>Exibe explicação e os parâmetros do modelo de verossimilhança:</p>
+<blockquote class="blockquote">
+<p><code>help lset</code></p>
+</blockquote>
+<p>Exibe explicação e os parâmetros a prioris do modelo filogenético:</p>
+<blockquote class="blockquote">
+<p><code>help prset</code></p>
+</blockquote>
+<p>Exibe explicação e os parâmetros da análise MCMC:</p>
+<blockquote class="blockquote">
+<p><code>help mcmc</code></p>
+</blockquote>
+<p>Exibe explicação e os parâmetros da função sump:</p>
+<blockquote class="blockquote">
+<p><code>help sump</code></p>
+</blockquote>
+<p>Exibe explicação e os parâmetros da função sumt:</p>
+<blockquote class="blockquote">
+<p><code>help sumt</code></p>
+</blockquote>
+</div></li>
+<li><p>Execute uma análise filogenética utilizando o exemplo trazido pelo próprio MrBayes, o arquivo <code>primatex.nex</code>:</p>
+<div style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;">
+<p>Carrega dados do arquivo NEXUS</p>
+<blockquote class="blockquote">
+<p><code>execute primates.nex</code></p>
+</blockquote>
+<p>Altera o modelo evolutivo para GTR+G+I (Variação na taxa de substituição entre sítios de nucleotídeos proporção de sítios invariáveis)</p>
+<blockquote class="blockquote">
+<p><code>lset nst 6 rates=invgamma</code></p>
+</blockquote>
+<p>Conferir os parâmetros do modelo</p>
+<blockquote class="blockquote">
+<p><code>showmodel</code></p>
+</blockquote>
+<p>Para alterar os parâmetros do modelo, use prset, indique o nome do parâmetro, insira o símbolo de igual “=”, e indique o valor</p>
+<blockquote class="blockquote">
+<p><code>prset</code></p>
+</blockquote>
+<p>Inicia a análise Monte Carlo via cadeias de Markov alterando alguns parâmetros</p>
+<blockquote class="blockquote">
+<p><code>mcmc ngen=20000 samplefreq=100 printfreq=100 diagnfreq=1000</code></p>
+</blockquote>
+<p>Resume os valores dos parâmetros usando o mesmo <em>burn-in</em> que o diagnóstico no comando “mcmc”</p>
+<blockquote class="blockquote">
+<p><code>sump</code></p>
+</blockquote>
+<p>Resume as árvores usando o mesmo <em>burn-in</em> que o comando mcmc</p>
+<blockquote class="blockquote">
+<p><code>sumt</code></p>
+</blockquote>
+</div></li>
+</ul>
+</section>
+<section id="prática-2-modelo-de-substituição" class="level3">
+<h3 class="anchored" data-anchor-id="prática-2-modelo-de-substituição">Prática 2: Modelo de substituição</h3>
+<ul>
+<li><p>Para especificação do modelo evolutivo, use o comando <code>lset</code></p></li>
+<li><p>Os parâmetros de modelo mais utilizads são:</p>
+<ol type="1">
+<li>número de tipos de substituição</li>
+</ol>
+<ul>
+<li><strong>1</strong> = Jukes-Cantor</li>
+<li><strong>2</strong> = HKY</li>
+<li><strong>6</strong> = GTR</li>
+</ul>
+<ol start="2" type="1">
+<li>modelo de variação de taxa entre sítios (<em>sites</em>)</li>
+</ol>
+<ul>
+<li><strong>I</strong> = Taxas de sítios invariáveis</li>
+<li><strong>G</strong> = Taxas de distribuição gama entre os sítios</li>
+<li><strong>I+G</strong> = Combinação</li>
+</ul></li>
+<li><p>Para configurar o modelo GTR+G, use:</p></li>
+</ul>
+<div style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;">
+<p>lset nst=6 rates=gamma</p>
+</div>
+<ul>
+<li>Para configurar o modelo GTR+G+I, use:</li>
+</ul>
+<div style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;">
+<p>lset nst=6 rates=invgamma</p>
+</div>
+<ul>
+<li>O modelo de GTR+I+G geralmente se ajusta melhor aos dados.</li>
+</ul>
+<p>Fonte: <a href="http://treethinkers.org/tutorials/mrbayes">http://treethinkers.org/tutorials/mrbayes</a></p>
+<ul>
+<li><p>Na versão mais recente do MrBayes (3.2.2) é possível evitar ter que especificar apenas um esquema de tipos de substituição, permitindo que MrBayes se mova por diferentes esquemas como parte de sua amostragem MCMC. Este procedimento é conhecido como salto reversível MCMC (RJ-MCMC).</p></li>
+<li><p>Para configurar o salto reversível, use o seguinte comando:</p></li>
+</ul>
+<div style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;">
+<p>lset nst=mixed rates=gamma</p>
+</div>
+<ul>
+<li>O salto reversível não está configurado atualmente para diferentes modelos de variação de taxa entre sítios.</li>
+</ul>
+</section>
+<section id="prática-3-gerando-o-output" class="level3">
+<h3 class="anchored" data-anchor-id="prática-3-gerando-o-output">Prática 3: Gerando o output</h3>
+<ul>
+<li><p>Depois de executar uma análise MCMC no MrBayes, certifique-se de que as cadeias de Markov convergiram através do software Tracer.</p></li>
+<li><p>Exclua as amostras influenciadas pelo ponto de partida de uma análise MCMC através de um processo conhecido como descarte do <em>burn-in</em>.</p></li>
+<li><p>A remoção do <em>burn-in</em> é feita especificando um valor para o parâmetro <code>burnin</code> de <code>sump</code> e <code>sumt</code>:</p></li>
+</ul>
+<div style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;">
+<p>sump burnin=1000</p>
+</div>
+<p><br></p>
+<div style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;">
+<p>sumt burnin=1000</p>
+</div>
+</section>
+</section>
+<section id="softwares-para-seleção-de-modelos-evolutivos" class="level2">
+<h2 class="anchored" data-anchor-id="softwares-para-seleção-de-modelos-evolutivos">Softwares para seleção de modelos evolutivos</h2>
+</section>
+<section id="raxmlgui-2.0-jmodeltest-2" class="level2">
+<h2 class="anchored" data-anchor-id="raxmlgui-2.0-jmodeltest-2">raxmlGUI 2.0 + jModelTest 2</h2>
+<p><a href="https://antonellilab.github.io/raxmlGUI/">https://antonellilab.github.io/raxmlGUI/</a></p>
+<section id="partitionfinder" class="level3">
+<h3 class="anchored" data-anchor-id="partitionfinder">PartitionFinder</h3>
+<p>PartitionFinder <img src="images/PartitionFinder.png" class="img-fluid"> Os principais resultados são gravados no arquivo <code>best_scheme.txt</code>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Huelsenbeck" class="csl-entry" role="listitem">
+Huelsenbeck, John P., e Fredrik Ronquist. 2001. <span>«<span>MRBAYES: Bayesian inference of phylogenetic trees</span>»</span>. <em>Bioinformatics</em> 17 (8): 754–55. <a href="https://doi.org/10.1093/bioinformatics/17.8.754">https://doi.org/10.1093/bioinformatics/17.8.754</a>.
+</div>
+<div id="ref-Huson" class="csl-entry" role="listitem">
+Huson, Daniel H., e David Bryant. 2005. <span>«<span>Application of Phylogenetic Networks in Evolutionary Studies</span>»</span>. <em>Molecular Biology and Evolution</em> 23 (2): 254–67. <a href="https://doi.org/10.1093/molbev/msj030">https://doi.org/10.1093/molbev/msj030</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./modelos.html" class="pagination-link" aria-label="Modelos de evolução de sequências">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Modelos de evolução de sequências</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./edicao-arvores.html" class="pagination-link" aria-label="Edição final de árvore">
+        <span class="nav-page-text"><span class="chapter-title">Edição final de árvore</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

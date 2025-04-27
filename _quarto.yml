@@ -1,0 +1,50 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Introdução à Filoinformática"
+  author: "Lucas S.B. Jordão"
+  date: "10/19/2022"
+  chapters:
+    - index.qmd
+    - filoinformatica.qmd
+    - visao-geral.qmd
+    - tecnicas-moleculares.qmd
+    - montagem.qmd
+    - formatos.qmd
+    - genebank.qmd
+    - alinhamento.qmd
+    - indels.qmd
+    - concatenacao.qmd
+    - modelos.qmd
+    - softwares.qmd
+    - edicao-arvores.qmd
+    - arvores-plantas.qmd
+    - introducao-r.qmd
+    - filogenia-r.qmd
+  google-analytics: "G-6RVCVSD60P"
+
+bibliography: references.bib
+
+format:
+  html:
+    smooth-scroll: true
+    theme:
+      light: brite
+      dark: cyborg
+    number-depth: 3
+    number-sections: false
+    css: "style.css"
+    include-in-header:
+      - text: |
+          <script src="nav-arrows.js"></script>
+          <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    include-after-body: 
+      - text: |
+          <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+          <script>
+            AOS.init();
+          </script>
+
+lang: pt

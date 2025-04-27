@@ -1,0 +1,7 @@
+### Alinhamento manual
+
+Caso o `Geneious` esteja operando sem restrições, o alinhamento manual poderá ser executado no próprio *software*.
+
+Caso tenha utilizado o `Geneious` com restrição de uso, ele não poderá realizar o alinhamento manual. Portanto, abra o arquivo `alinhamento.fasta` e realize o alinhamento manual no programa `BioEdit`.
+
+Essa é a etapa em que as homologias moleculares serão codificadas. Cada *locus* representará um caráter na matriz. Nenhum alinhamento múltiplo automático garante um alinhamento perfeito, principalmente devido às lacunas (*gaps*) produzidas pelos *indels* durante o alinhamento. Por isso, vamos realizar o alinhamento manual utilizando o `BioEdit` a partir do arquivo gerado pelo alinhamento automático.

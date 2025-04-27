@@ -1,0 +1,45 @@
+# Modelos de evolução de sequências
+
+## As 6 substituições
+
+@Holmes2001
+
+![](images/six_subst.png)
+
+- Substituições do tipo transição são mais frequentes que transversões.
+  - Transição:
+    - Entre purinas: adenina (A) e guanina (G);
+    - Entre pirimidinas: citosina (C) e timina (T).
+  - Transversões:
+    - Entre purinas e pirimidinas.
+- Ademais, as **mutações silenciosas** são mais frequentes do que:
+  - Mutações de sentido errado (*missense*) ou não sinônimas;
+    - Resulta na substituição de um aminoácido por outro.
+  - Mutações sem sentido (*nonsense*).
+    - Ocorre um substituição de um par de nucleotídeos dentro de uma região codificante de proteína que muda um códon para um aminoácido em um códon de término.
+    
+## Modelo Jukes/Cantor (JC) 1969
+
+- Assume que as bases ocorrem com igual frequência e a taxa de substituição de uma base para qualquer outra é a mesma.
+
+![](images/jukesCantor.png)
+
+
+## Modelo Kimura (K80) 1980
+
+- Referido como "modelo de dois parâmetros de Kimura"
+
+- Assume frequências distintas para transições e transversões
+    
+
+## Modelo Hasegawa-Kishino-Yano (HKY) 1985
+
+- Distingue entre a taxa de transições e transversões (usando o parâmetro κ), e permite frequências de base desiguais.
+
+## Modelo General Time Reversible (GTR) 1986
+
+- Modelo de substituição mais utilizado.
+
+- Modelo mais neutro, independente, de sítios finitos e reversível no tempo
+
+- Todos seis tipos de substituição têm taxas diferentes

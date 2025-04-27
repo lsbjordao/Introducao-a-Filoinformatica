@@ -1,0 +1,97 @@
+# Formatos de arquivo mais comuns
+
+- Os mais conhecidos arquivos para armazenar dados filogenéticos (filodados) são:
+
+  - **Fasta** (.fst .fasta)
+  - **Phyllip** (.phy)
+  - **Nexus** (.nex)
+
+- Esses arquivos são os "*input files*" para os processamentos das análises filogenéticas.
+
+- Eles devem ser editados num editor de texto plano (*plain text editor*), sem formatações e estilos.
+
+
+## PHYLIP
+
+- Lançado em 1980 por [Joe Felsenstein](https://felsenst.github.io/).
+
+![](https://felsenst.github.io/Joe2011Disappointmenta.jpg)
+
+```
+3 62
+Mimosa_afranioi ----------------------------------------CATTCAAACCTTTTTTA-----
+Mimosa_campicola --------------------------------------TTCATTCAAACCTTTTTTA----
+Mimosa_candollei CCAGGAAAAAAGTGTACAGCATGCATATTCTTA-CGATTTCATTCAAACCTTTTCTA----
+```
+
+## FASTA
+
+- Lançado em 1985 por David Lipman e William R. Pearson.
+
+- Formato mais simples para sequências nucleotídicas ou proteicas.
+
+- O nome do terminal ou a etiqueta (*label*) é precedida pelo caractere do sinal de maior `>`. 
+
+- Admite o caractere vazio (*gap*): `-`.
+
+- Extensões usadas: `.fas`, `.fasta`.
+
+```
+>Mimosa_afranioi
+----------------------------------------CATTCAAACCTTTTTTA---
+--TTTCGATTTTAGATTAGAATTGTCTTGTTCTAACTGGCGGAGGCGGGACTAATATGTT
+GATATTTAT----------ATTTATATAGATATAGATTTATA-------------TGGAT
+>Mimosa_campicola
+--------------------------------------TTCATTCAAACCTTTTTTA---
+--TTTAGATT--AGAATAGAATTGTCTTGTTCTAACTGGCGGAGGCGGGACTAATATGTT
+GATATTTATATAGATATAGATTTATATAGATATAGATTTATA-------------TGGAT
+>Mimosa_candollei
+CCAGGAAAAAAGTGTACAGCATGCATATTCTTA-CGATTTCATTCAAACCTTTTCTA---
+--TTTCGATTTTAGATTCGAATTGTCTTGTTCTAACTGGCGGAGGCGGGACTAATATGTT
+GATATTTAT----------ATTTAT------ATAGATTTATA-------------TGTAT
+```
+
+## NEXUS
+
+- Lançado em 1987 por Wayne & David Maddison e David L. Swofford ^(criador do PAUP)^.
+
+![](images/Maddisons.jpg)
+
+`r Citet(referencias, "Maddison")`
+
+```
+#NEXUS
+BEGIN TAXA;
+	TITLE Taxa;
+	DIMENSIONS NTAX=3;
+	TAXLABELS
+		afranioi campicola candollei;
+END;
+BEGIN CHARACTERS;
+	TITLE  Character_Matrix;
+	DIMENSIONS  NCHAR=62;
+	FORMAT DATATYPE = DNA GAP = - MISSING = ?;
+	MATRIX
+Mimosa_afranioi	---------------------------------------CATTCAAACCTTTTTTA-----
+Mimosa_campicola	--------------------------------------TTCATTCAAACCTTTTTTA----
+Mimosa_candollei	CCAGGAAAAAAGTGTACAGCATGCATATTCTTA-CGATTTCATTCAAACCTTTTCTA----
+;
+END;
+
+```
+
+::: {style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;"}
+
+![](images/maclade.jpg){width=30%}
+
+Maddison, W.P. & Maddison, D.R., 1992. MacClade: Analysis of Phylogeny and Character Evolution. Version 3
+
+:::
+
+::: {style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;"}
+
+![](images/mesquite.png)
+
+Maddison, W.P. & Maddison, D.R., 2002. Mesquite: a modular system for evolutionary analysis. Version 0.991. http://mesquiteproject.org
+
+:::

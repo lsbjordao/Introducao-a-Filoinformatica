@@ -1,0 +1,364 @@
+# Introdução ao R
+
+![](images/ross_robert.png)
+
+- O [{{< fa brands r-project >}}](https://www.r-project.org) foi criado por Ross Ihaka e Robert Gentleman no departamento de Estatística da Universidade de Auckland, Nova Zelândia, mas foi posteriormente desenvolvido por um esforço colaborativo de pessoas em vários locais do mundo. 
+
+- É uma linguagem e um ambiente de desenvolvimento integrado para cálculos estatísticos, gráficos e análises diversas.
+
+- É gratuito e de livre distribuição.
+
+- É altamente expansível com o uso de pacotes, que são bibliotecas para funções específicas ou áreas de estudo específicas.
+
+- Curva de aprendizagem bastante amigável.
+
+- Enorme quantidade de tutoriais disponíveis.
+
+
+## Programação orientada a objetos
+
+- Programação orientada a objetos.
+
+- Tudo no {{< fa brands r-project >}} são objetos.
+
+- Objetos possuem uma **estrutura de dados** que armazenam **variáveis**.
+
+- Variáveis armazenam **valores** ou **conjunto de valores** de acordo com o **tipo dos dados**
+
+- As variáveis populam estruturas de dados.
+
+## Principais estruturas de dados
+
+As variáveis são armazenadas em tipos de estruturas de dados:
+
+- vetores
+- listas
+- matrizes
+- dataframes
+- arrays
+
+![](images/Robjects.png)
+
+- Funções são também são objetos, mas executam um conjunto operações determinadas.
+
+## Principais tipos de dados
+
+As váriáveis pode ser de diferentes tipos:
+  
+- numeric
+  
+  - integer, double
+    
+- character
+  
+  - string
+    
+- logical
+  
+  - TRUE, FALSE
+    
+- factor
+  
+  - variáveis categóricas
+    
+  - nº limitado de valores
+    
+  - níveis do fator
+
+## Classe x propriedade x atributo
+
+- Todo objeto tem uma **classe**.
+  - Diz-se que um objeto é uma instância de uma classe.
+    - Uma classe contém **propriedades**.
+      - O valor que cada propriedade assume em um objeto é chamado de **atributo**.
+
+![](images/class.png)
+
+[](images/class_mode_typeof.png)
+
+- Outras classes podem ser definidas.
+
+### Sistema de referência
+
+- No R, há um sistema de referência de classes.
+
+| Classe S3 | Classe S4 |
+| --------- | --------- |
+| Atributos são acessados usando `$` | Atributos são acessados usando `@` |
+
+
+## Linguagem R
+
+- Tudo após `#` não é lido pelo R. Este é um caractere de comentário.
+
+- O {{< fa brands r-project >}} diferencia maiúsculas de minúsculas.
+
+- Há uma série de operadores pré-programados.
+
+## Console
+
+- O console do {{< fa brands r-project >}} refere-se ao ambiente de desenvolvimento e o *prompt* de comando (*command prompt) *é a linha de inserção de comando. O símbolo no *prompt* de comando é o "`>`", porém ele também muda para "`+`" quando há a entrada de um comando incompleto. Com o sinal de +, o console indica que aguarda a completude do comando inserido.
+
+- Tudo após o símbolo "#" não é lido pelo R. Esse é o caráter para introdução de notas e comentários.
+
+- O [{{< fa brands r-project >}}](https://www.r-project.org)\ diferencia maiúsculas de minúsculas.
+
+## Criando objetos
+
+Para atribuir um valor a um objeto, utilize o operador `<-` (ou `=`):
+
+```{r}
+x <- 4
+x
+y = 5
+x + y
+```
+
+## Funções
+
+### Sintaxe da função
+
+::: {style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;"}
+
+`função()`
+
+`função(argumento1 = valor, argumento2 = valor, ...)`
+
+:::
+
+Vamos criar uma função como exemplo:
+
+```{r}
+função <- function(arg1 = "", arg2 = ""){
+  
+  Código_da_função
+  
+}
+```
+
+Vamos observar os argumentos da função com a função `args()`
+
+```{r}
+args(função) # Mostra os argumentos da função `função`
+```
+
+### Funções básicas
+
+Versão, licença e citação:
+
+```{r}
+R.Version() # mostra a versão
+license() # informações sobre a licença
+citation() # como citar
+```
+
+Funções de ajuda:
+
+```{r}
+help() # função ajuda
+help.start() # Manuais e outros materiais
+help(base) # Manual do pacote "base"
+```
+
+Funções de data e hora:
+
+```{r}
+Sys.time() # Obtém data e horário exatos do sistema
+
+```
+
+
+## Pacotes
+
+Pacotes mais baixados:
+
+```{r echo=FALSE}
+library(xaringanExtra)
+embed_xaringan(
+  url = "https://www.r-pkg.org/",
+  ratio = "4:2"
+)
+```
+
+Pacotes mais baixados em tempo real:
+
+```{r echo=FALSE}
+library(xaringanExtra)
+embed_xaringan(
+  url = "https://gallery.shinyapps.io/087-crandash/",
+  ratio = "4:2"
+)
+```
+
+## Prática
+
+### Indexação de objetos
+```{r}
+x <- 4 # cria o objeto "x" atribuindo o valor "4"
+x # Observe o objeto criado
+```
+
+Para concatenar vários valores utilize a função `c`:
+
+\begin{center}\framebox{`c`(objeto1, objeto2,...)}\end{center}
+
+Concatenar vários valores e atribuí-los a um objeto:
+```{r}
+x <- c(4, 5, 6, 7, 8)
+x # Observe o objeto criado
+```
+
+Extrair um ou vários valores de um objeto a partir da indexação:
+```{r}
+x[3]
+x[c(1, 4)]
+```
+
+Substitua valores de um objeto a partir da indexação:
+```{r}
+y <- c(24, 10, 45, 56, 20, 29, 50, 67, 80, 23, 20, 15, 65, 57, 34, 63, 20)
+y[y==20] <- 10 # Se algum valor de y é igual a 20, substituir por 10
+y
+y[y==10] <- "NA" # Apaga todos os valores iguais a 10, substituindo por "NA"
+y
+```
+
+Deleta o objeto:
+```{r}
+rm(x)
+```
+
+Pode-se criar objetos com valores numéricos (`numeric`), conforme mostrado até aqui, mas também objetos com valores de caracteres (`character`), lógicos (`logical`) ou fatores (`factor`).
+
+Objetos do tipo `character` podem ser criados utilizando aspas (" ") entre os valores incluídos. Um objeto do tipo `factor` cria categorias para cada valor encontrado no objeto. Geralmente são usados em diversos pacotes para análises filogenéticas:
+```{r}
+character <-c("apical", "apical", "basal", "apical", "apical", "basal", "median")
+character
+charact_fact <- factor(character)
+charact_fact
+```
+
+### Operadores de lógica
+
+::: {style="color: black; background: lightblue; text-align: justify; border: 5px outset lightgray; padding: 10px;"}
+
+| < | less than |
+ --- -----------
+| <= | less than or equal to |
+ ---- -----------------------
+| >	| greater than |
+ --- --------------
+| >= | greater than or equal to |
+ ---- --------------------------
+| == | exactly equal to |
+ ---- ------------------
+| != | not equal to |
+ ---- --------------
+| !x | not x |
+ ---- -------
+| x \| y | x OR y |
+ -------- --------
+| x \& y | x AND y |
+ -------- ---------
+ 
+:::
+
+Vamos testar:
+
+```{r}
+x <- c(1:10)
+x
+x[(x>8) | (x<5)]
+
+# Qual a lógica?
+x > 8
+x < 5
+
+x > 8 | x < 5
+x[c(T, T, T, T, F, F, F, F, T, T)]
+```
+
+Experimente a utilização dos operadores matemáticos simples entre diferentes objetos:
+
+```{r}
+x
+y
+```
+
+### Inspecionando os atributos um objeto
+
+```{r}
+object.size(x) # Tamanho do objeto
+str(x) # Estrutura do objeto
+length(x) # Comprimento
+attributes(x) # Nomes, classes, etc
+
+class(x) # Tipo do objeto
+mode(x) # Modo usado pelo R para armazenar objeto na memória
+typeof(x) # Tipo usado pelo R para armazenar objeto na memória
+```
+
+Inspecione os objetos criados. Exemplos:
+
+```{r}
+class(x)
+class(y)
+class(character)
+class(charact_fact)
+```
+
+### Teste e Coerção de objetos
+
+Com os métodos da função `is` é possível testar se um objeto corresponde a uma determinada `classe`. E com os métodos da função `as` é possível coagir um objeto de uma classe a transformar-se em outra.
+
+Veja os métodos das funções `is` e `as`: (Retire o operador # da frente do comando para rodá-lo)
+```{r}
+methods(is)
+# methods(as)
+```
+
+Teste com os objetos já criados:
+
+
+## RStudio
+
+O [RStudio](https://rstudio.com) é um Ambiente Interativo de Desenvolvimento (IDE) que traz o console R, um editor de *script*, a exibição dos objetos e funções do ambiente de trabalho, área de plotagem, entre outras funcionalidades e automatizações, dentre as quais:
+
+- Identação automática
+
+- Complementação de parênteses
+
+- Editor com destaque de sintaxe
+
+- Auto-completar comandos
+
+![](images/rstudio1.png)
+
+
+
+## Ambiente de Trabalho
+
+- O ambiente de trabalho (*workspace*) é o espaço virtual onde os objetos definidos pelo usuário (vetores, matrizes, *dataframes*, listas, funções) são alocados. 
+
+- No RStudio, podemos observar o ambiente de trabalho e seus objetos na aba `Ènvironment`.
+
+## Diretório de Trabalho
+
+- O diretório de trabalho (*working directory*) define o *diretório-raiz* do caminho de diretórios para fins de entrada e saída de arquivos. Ele define o *caminho relativo* para um caminho de diretórios.
+
+- O **caminho absoluto** tem início na pasta raiz do seu disco local do computador. O caminho absoluto do ambiente de trabalho (*workspace*) pode ser obtido com a função `getwd()`. Abaixo vemos o diretório-raiz do presente *bookdown* no computador local:
+
+```{r}
+getwd()
+```
+
+
+![](images/rstudio2.png)
+
+```{r}
+ls() # lista todos os objetos/funções do Ambiente de Trabalho
+
+rm(list = ls()) # limpa todo Ambiente de Trabalho
+
+ls() # lista todos os objetos/funções do Ambiente de Trabalho
+```

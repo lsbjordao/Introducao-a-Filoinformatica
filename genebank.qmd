@@ -1,0 +1,16 @@
+# GeneBank *Blast*
+
+## Baixando sequências do GeneBank
+
+Buscar e baixar sequências
+
+National Center for Biotechnology Information
+
+
+## Preparando os arquivos das sequências
+
+### Expressões regulares
+
+RegEx
+
+#### Prática

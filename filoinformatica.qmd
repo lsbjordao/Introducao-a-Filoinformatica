@@ -1,0 +1,44 @@
+# Filoinformática
+
+## Conceito
+
+- **Falta uma definição amplamente aceita**, mas qualquer conceito deve considerar as funções da informática de: coleta, classificação, tratamento, processamento, armazenamento, recuperação e integração, bem como a de apresentação e representação de dados.
+
+::: {style="color: black; background: lightgray; text-align: justify; border: 5px outset lightgray; padding: 10px;"}
+Campo que abrange todas as etapas, tarefas e usos de ferramentas computacionais envolvidas na produção do conhecimento filogenético, desde a obtenção ao tratamento, às análises e metanálises, armazenamento, recuperação, integração e representação de dados.
+:::
+
+## Fontes de dados
+
+- Grande parte do desafio está no gerenciamento e interoperabilidade de bases de dados.
+
+- Dados relacionado a estudos filogenéticos incluem:
+
+  1.  nomenclatura;
+  2.  taxonomias;
+  3.  espécimes(*vouchers*);
+  4.  distribuição espacial (geográfica);
+  5.  dados abióticos;
+  6.  matrizes de estados de caracteres;
+  7.  descrições dos estados de caracteres;
+  8.  sequências de ácidos nucleicos;
+  9.  alinhamentos de sequências;
+  10. árvores filogenéticas e metadados;
+  11. genômica e proteômica;
+  12. dados da biodiversidade;
+  13. autores e referências bibliográficas.
+  
+
+## Perspectivas
+
+- O poder preditivo da filoinformática instiga os biólogos à persuasiva busca pela descoberta de todos os ramos da Árvore da Vida, o mais rapidamente possível. A geração de uma base de dados única que interconecte informação filogenética às outras bases de dados sobre biodiversidade é a mais importante contribuição da Sistemática para a humanidade [@Cracraft].
+
+- Filoepidemiologia / Filodinâmica
+
+![](images/covid1.png)
+
+[Forster, P., 2020. Phylogenetic network analysis of SARS-CoV-2 genomes](https://doi.org/10.1073/pnas.2004999117)
+
+- O conhecimento filogenético é cada vez mais usado como uma ponte entre a genômica funcional, a evolução e o desenvolvimento --- desvendar como o genótipo se torna fenótipo exige que conheçamos a filogenia quase tão bem quanto conhecemos a genômica [@Piel].
+
+- Muitas das implicações do desenvolvimento dessa tecnologia ainda não foram sequer pensadas.

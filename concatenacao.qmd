@@ -1,0 +1,9 @@
+# Concatenando matrizes
+
+O *software* [SequenceMatrix](http://www.ggvaidya.com/taxondna/) @Vaidya é um programa *open-source*, simples, desenvolvido em Java, para concatenar matrizes distintas, mesclando sequências com mesmo nome em diferentes arquivos (matrizes).
+
+![](images/SequenceMatrix.jpg)
+
+## Prática: RegEx 2
+
+O arquivo `.nex` resultante do procedimento de codificação do SeqState precisa ser aberto em um editor de texto mais especializado para programação. Experimente o [Notepad2](http://www.flos-freeware.ch).

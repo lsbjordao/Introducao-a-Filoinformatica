@@ -44,6 +44,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-dark-9080cd1872618827307f6bc34f81b6b8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-32d3c918484c9f49d94f37e56798127d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -81,6 +83,8 @@ gtag('js', new Date());
 gtag('config', 'G-6RVCVSD60P', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="nav-arrows.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="style.css">
@@ -125,7 +129,8 @@ gtag('config', 'G-6RVCVSD60P', { 'anonymize_ip': true});
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Prêambulo{-}</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prêambulo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -165,7 +170,42 @@ gtag('config', 'G-6RVCVSD60P', { 'anonymize_ip': true});
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./all.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Alinhamento múltiplo e manual de sequências</span></a>
+  <a href="./indels.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Codificando indels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./concatenacao.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Concatenando matrizes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./modelos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de evolução de sequências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./softwares.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Softwares para análises filogenéticas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./edicao-arvores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Edição final de árvore</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./arvores-plantas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Árvores filogenéticas das plantas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introducao-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introdução ao R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./filogenia-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Filogenia no R</span></a>
   </div>
 </li>
     </ul>
@@ -363,7 +403,7 @@ gtag('config', 'G-6RVCVSD60P', { 'anonymize_ip': true});
 <p>Então, realizaremos o alinhamento múltiplo e manual das sequências, onde construiremos a matriz com os dados moleculares.</p>
 <p>Aprenderemos o básico sobre o terminal (ou console ou <em>shell</em>) do Windows - <code>MS-DOS</code>, conhecimentos que serão essenciais utilizar aplicativos com interface de linha de comando (CLI, em inglês) e para procederemos as análises filogenéticas.</p>
 <p>As análises filogenéticas serão rodadas com dados moleculares. Utilizaremos os programas <code>IQ-TREE</code> para máxima verossimilhança, e <code>MrBayes</code> e <code>Beast2</code> para bayesiana.</p>
-<p>Então, aprenderemos o básico sobre o <code>r fa("r-project", fill = "steelblue")</code> para apresentarmos os principais pacotes desenvolvidos para análises filogenéticas e afins. Uma grande atenção será dada à edição de árvores filogenéticas através de três pacotes (<code>ape</code>, <code>phytools</code>, <code>ggtree</code>).</p>
+<p>Então, aprenderemos o básico sobre o <i class="fa-brands fa-r-project" aria-label="r-project"></i> para apresentarmos os principais pacotes desenvolvidos para análises filogenéticas e afins. Uma grande atenção será dada à edição de árvores filogenéticas através de três pacotes (<code>ape</code>, <code>phytools</code>, <code>ggtree</code>).</p>
 <p>Finalmente, uma introdução ao <code>RMarkdown</code> para redação da documentação e apresentação dos códigos encerra o curso de introdução à filoinformática.</p>
 
 
@@ -794,6 +834,10 @@ gtag('config', 'G-6RVCVSD60P', { 'anonymize_ip': true});
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 
 
 

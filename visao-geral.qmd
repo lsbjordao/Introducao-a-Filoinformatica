@@ -12,6 +12,6 @@ Aprenderemos o básico sobre o terminal (ou console ou *shell*) do Windows - `MS
 
 As análises filogenéticas serão rodadas com dados moleculares. Utilizaremos os programas `IQ-TREE` para máxima verossimilhança, e `MrBayes` e `Beast2` para bayesiana.
 
-Então, aprenderemos o básico sobre o `r fa("r-project", fill = "steelblue")` para apresentarmos os principais pacotes desenvolvidos para análises filogenéticas e afins. Uma grande atenção será dada à edição de árvores filogenéticas através de três pacotes (`ape`, `phytools`, `ggtree`).
+Então, aprenderemos o básico sobre o {{< fa brands r-project >}} para apresentarmos os principais pacotes desenvolvidos para análises filogenéticas e afins. Uma grande atenção será dada à edição de árvores filogenéticas através de três pacotes (`ape`, `phytools`, `ggtree`).
 
 Finalmente, uma introdução ao `RMarkdown` para redação da documentação e apresentação dos códigos encerra o curso de introdução à filoinformática.

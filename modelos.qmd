@@ -2,8 +2,6 @@
 
 ## As 6 substituições
 
-@Holmes2001
-
 ![](images/six_subst.png)
 
 - Substituições do tipo transição são mais frequentes que transversões.
